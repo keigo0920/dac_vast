@@ -1,2 +1,15 @@
-<h1>キューポイント編集</h1>
 <% #TODO %>
+<h1>id: <%= @cuepoint.id %> のキューポイント編集ページ</h1>
+
+<%= form_for(@cuepoint) do |f| %>
+  <%= f.label :name, 'キューポイント' %>
+  <%= f.text_field :name %>
+
+　<div class = "vast_url">
+　  <%= vast_url(@cuepoint) %>
+ </div>
+  <%= f.submit '登録' %>
+<% end %>
+
+<%= link_to '削除する', @cuepoint, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+<%= link_to '一覧に戻る', cuepoints_path %>

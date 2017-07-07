@@ -1,2 +1,40 @@
 <h1>キャンペーン登録</h1>
-<% #TODO %>
+<%= form_for(@campaign) do |f| %>
+  
+  <div class="form-group">
+    <%= f.label :name, 'Name' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :start_at, 'Start' %>
+    <%= f.text_field :start_at, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :end_at, 'End' %>
+    <%= f.text_field :end_at, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :limit_start, 'Limit' %>
+    <%= f.text_field :limit_start, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :movie_url, 'URL' %>
+    <%= f.text_field :movie_url, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :cuepints %><br />
+    <%= collection_check_boxes(:campaign, :cuepoint_ids, Cuepoint.all, :id, :name) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+  </div>
+
+  <%= f.submit '登録' %>
+  <%= f.submit '中止' %>
+<% end %>
+
+<%= link_to '一覧に戻る', campaigns_path %>

@@ -1,2 +1,27 @@
 <h1>Results</h1>
 <% #TODO %>
+<table class="table table-bordered table-condensed table-hover table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Campaign</th>
+        <th>ID</th>
+        <th>Cuepoint</th>
+        <th>Start</th>
+        <th>Complete</th>
+      </tr>
+    </thead>
+    <tbody>
+  <% @results.each do |result| %>
+  <tr>
+    <td><%= result.campaign.id %></td>
+    <td><%= result.campaign.name %></td>
+    <td><%= result.cuepoint.id %></td>
+    <td><%= result.cuepoint.name %></td>
+    <td><%= result.count_start%></td>
+    <td><%= result.count_complete%></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+</ul>

@@ -1,0 +1,17 @@
+<%= form_for(cuepoint) do |f| %>
+  <% if cuepoint.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% cuepoint.errors.full_cuepoints.each do |cuepoint| %>
+          <li><%= cuepoint %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :name, 'キューポイント' %>
+  <%= f.text_field :name %>
+
+  <%= f.submit '投稿' %>
+  <%= redirect_to :action => "index" %>
+<% end %>

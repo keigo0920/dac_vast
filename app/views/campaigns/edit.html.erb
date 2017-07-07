@@ -1,2 +1,32 @@
-<h1>キャンペーン編集</h1>
-<% #TODO %>
+
+<h1>id: <%= @campaign.id %> のキャンペーン編集ページ</h1>
+
+<%= form_for(@campaign) do |f| %>
+  <%= f.label :name, 'キャンペーン' %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :start_at, '開始日時' %>
+  <%= f.text_field :start_at, class: 'form-control' %>
+  
+  <%= f.label :end_at, '終了日時' %>
+  <%= f.text_field :end_at, class: 'form-control' %>
+  
+  <%= f.label :limit_start, '上限の再生回数' %>
+  <%= f.text_field :limit_start, class: 'form-control' %>
+
+  <%= f.label :movie_url, '動画のURL' %>
+  <%= f.text_field :movie_url, class: 'form-control' %>
+
+  <div class="form-group">
+    <%= f.label :cuepints %><br />
+    <%= collection_check_boxes(:campaign, :cuepoint_ids, Cuepoint.all, :id, :name) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+  </div>
+
+  <%= f.submit '登録' %>
+<% end %>
+<%= link_to '削除する', @campaign, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+
+<%= link_to '一覧に戻る', campaigns_path %>
+<%= link_to '中止', campaigns_path %>
