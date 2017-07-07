@@ -5,9 +5,7 @@
   <%= f.label :name, 'キューポイント' %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.submit '登録' %>
-  <%= f.submit '中止' %>
+  <%= f.submit '登録' , class: "btn btn-success"%>
+  <%= link_to'中止', cuepoints_path, class: "btn btn-default" %>
 
 <% end %>
-
-<%= link_to '一覧に戻る', cuepoints_path %>

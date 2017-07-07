@@ -24,9 +24,7 @@
     <% end %>
   </div>
 
-  <%= f.submit '登録' %>
+<%= f.submit '登録', class: "btn btn-success" %>
+<%= link_to '中止', campaigns_path,  class: "btn btn-warning" %>
+<%= link_to '削除する', @campaign, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } , class: "btn btn-danger"%>
 <% end %>
-<%= link_to '削除する', @campaign, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
-
-<%= link_to '一覧に戻る', campaigns_path %>
-<%= link_to '中止', campaigns_path %>

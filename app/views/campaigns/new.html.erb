@@ -33,8 +33,6 @@
     <% end %>
   </div>
 
-  <%= f.submit '登録' %>
-  <%= f.submit '中止' %>
+  <%= f.submit '登録',  class: "btn btn-success" %>
+  <%= link_to '中止',campaigns_path, class: "btn btn-default" %>
 <% end %>
-
-<%= link_to '一覧に戻る', campaigns_path %>

@@ -8,8 +8,7 @@
 　<div class = "vast_url">
 　  <%= vast_url(@cuepoint) %>
  </div>
-  <%= f.submit '登録' %>
+<%= f.submit '登録', class: "btn btn-success" %>
+<%= link_to '中止', cuepoints_path,  class: "btn btn-warning" %>
+<%= link_to '削除する', @cuepoint, method: :delete, data: { confirm: '本当に削除してよろしいですか？' },  class: "btn btn-danger" %>
 <% end %>
-
-<%= link_to '削除する', @cuepoint, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
-<%= link_to '一覧に戻る', cuepoints_path %>
